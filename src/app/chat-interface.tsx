@@ -294,17 +294,18 @@ const ChatInterface = () => {
 
   // CUSTOMIZE: Replace with your persona's introduction message
   // This message is shown when the conversation starts
-  const INTRODUCTION_MESSAGE = "Hallo! Ich bin {{AVATAR_NAME}}, {{AVATAR_TITLE}} und {{ROLE_DESCRIPTION}}. Ich helfe Ihnen gerne mit {{EXPERTISE_AREA_DESCRIPTION}}.";
+  const INTRODUCTION_MESSAGE = "Hello! I'm {{AVATAR_NAME}}, {{AVATAR_TITLE}} and {{ROLE_DESCRIPTION}}. I'm here to help you with {{EXPERTISE_AREA_DESCRIPTION}}.";
 
-  const SUGGESTED_QUESTIONS = `Fragen Sie mich zum Beispiel:
+  // CUSTOMIZE: Replace with domain-specific example questions
+  const SUGGESTED_QUESTIONS = `You can ask me questions like:
 
-- "Welche Megatrends werden die nächsten 10 Jahre prägen?"
+- "What are the key topics in {{DOMAIN}}?"
 
-- "Wie wird K.I. die Arbeitswelt in den kommenden Jahren verändern?"
+- "How can {{EXPERTISE_AREA}} help solve {{CHALLENGE}}?"
 
-- "Welche strategischen Anpassungen sollten Unternehmen jetzt vornehmen, um zukunftsfähig zu bleiben?"
+- "What are the best practices for {{TOPIC}}?"
 
-- "Wie können wir schwache Signale für disruptive Veränderungen in unserer Branche erkennen?"`;
+- "Can you explain {{CONCEPT}} in more detail?"`;
 
   const handleConnect = async () => {
     if (!isConnected) {
@@ -1078,8 +1079,8 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
                       </svg>
                     </div>
                     {/* CUSTOMIZE: Replace "AVATAR_NAME" and welcome text with your persona */}
-                    <h3 className="desktop:text-[22px] text-xl font-semibold text-neutral-text-primary mb-3">Willkommen bei AVATAR_NAME</h3>
-                    <p className="desktop:text-[17px] text-base text-neutral-text-secondary max-w-md mb-6">Klicken Sie auf die Schaltfläche „Verbinden", um Ihr Gespräch mit AVATAR_TITLE zu beginnen.</p>
+                    <h3 className="desktop:text-[22px] text-xl font-semibold text-neutral-text-primary mb-3">Welcome to AVATAR_NAME</h3>
+                    <p className="desktop:text-[17px] text-base text-neutral-text-secondary max-w-md mb-6">Click the "Connect" button to start your conversation with AVATAR_TITLE.</p>
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-8">

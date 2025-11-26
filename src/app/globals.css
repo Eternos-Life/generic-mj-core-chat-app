@@ -7,57 +7,96 @@
 @tailwind utilities;
 
 /* ========================================
-   2B AHEAD LIGHT THEME - Wine Red & White
+   NEUTRAL THEME - Professional Blue & White
+   ========================================
+
+   CUSTOMIZE: Replace color values to match your brand
+   Each CSS variable is documented with which components use it
    ======================================== */
 
 :root {
-  /* Light Theme Core Colors */
-  --background: #FFFFFF;         /* Main white background */
-  --foreground: #1A1A1A;         /* Main dark text */
+  /* -------------------
+     BACKGROUNDS
+     Used by: Main page background, cards, panels
+     ------------------- */
+  --background: #FFFFFF;         /* Main white background - page, chat area */
+  --foreground: #1A1A1A;         /* Main dark text - all content */
 
-  /* Card & Popover */
-  --card: #FAFAFA;
-  --card-foreground: #1A1A1A;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
+  /* -------------------
+     CARDS & POPOVERS
+     Used by: AI Studio cards, tooltips, dropdown menus
+     ------------------- */
+  --card: #FAFAFA;               /* Card backgrounds - AI Studio tool cards */
+  --card-foreground: #1A1A1A;    /* Card text - tool card labels */
+  --popover: #FFFFFF;            /* Popover backgrounds - tooltips, menus */
+  --popover-foreground: #1A1A1A; /* Popover text */
 
-  /* Primary (2b AHEAD Wine Red) */
-  --primary: #7A2948;            /* 2b AHEAD wine red */
-  --primary-foreground: #FFFFFF;
+  /* -------------------
+     PRIMARY ACCENT (Professional Blue)
+     Used by: Connect button, microphone button, avatar borders,
+              links, focus rings, primary CTAs
+     ------------------- */
+  --primary: 37 99 235;          /* Main brand blue (#2563EB) - buttons, accents */
+  --primary-foreground: #FFFFFF; /* White text on blue buttons */
 
-  /* Secondary */
-  --secondary: #737373;          /* Neutral gray */
+  /* -------------------
+     SECONDARY
+     Used by: Secondary buttons, less important UI elements
+     ------------------- */
+  --secondary: #737373;          /* Neutral gray - secondary elements */
   --secondary-foreground: #FFFFFF;
 
-  /* Muted */
-  --muted: #F5F5F5;
-  --muted-foreground: #525252;
+  /* -------------------
+     MUTED
+     Used by: Disabled states, subtle backgrounds, AI message bubbles
+     ------------------- */
+  --muted: #F5F5F5;              /* Light gray - AI chat bubbles, disabled states */
+  --muted-foreground: #525252;   /* Text on muted backgrounds */
 
-  /* Accent */
-  --accent: #933558;             /* Lighter wine red accent */
+  /* -------------------
+     ACCENT
+     Used by: Hover states, highlights, active elements
+     ------------------- */
+  --accent: 59 130 246;          /* Lighter blue (#3B82F6) - hover states */
   --accent-foreground: #FFFFFF;
 
-  /* Destructive */
-  --destructive: #EF4444;        /* Error red */
+  /* -------------------
+     DESTRUCTIVE
+     Used by: Error messages, delete buttons, warnings
+     ------------------- */
+  --destructive: #EF4444;        /* Error red - error states, delete actions */
   --destructive-foreground: #FFFFFF;
 
-  /* Border & Input */
-  --border: rgba(212, 212, 212, 0.8);
-  --input: #FAFAFA;
-  --ring: #7A2948;
+  /* -------------------
+     BORDERS & INPUTS
+     Used by: All borders, input fields, dividers
+     ------------------- */
+  --border: rgba(212, 212, 212, 0.8);  /* Border gray - cards, inputs, dividers */
+  --input: #FAFAFA;                    /* Input background color */
+  --ring: 37 99 235;                   /* Focus ring - blue accent for accessibility */
 
-  /* Radius */
-  --radius: 0.625rem;
+  /* -------------------
+     BORDER RADIUS
+     Used by: All rounded corners site-wide
+     ------------------- */
+  --radius: 0.625rem;  /* 10px - consistent corner rounding */
 
-  /* Chart Colors */
-  --chart-1: #7A2948;
-  --chart-2: #10B981;
-  --chart-3: #8B5CF6;
-  --chart-4: #F59E0B;
-  --chart-5: #EF4444;
+  /* -------------------
+     CHART COLORS
+     Used by: Data visualization, charts, graphs (if implemented)
+     ------------------- */
+  --chart-1: 37 99 235;   /* Primary blue */
+  --chart-2: 16 185 129;  /* Success green */
+  --chart-3: 139 92 246;  /* Purple */
+  --chart-4: 245 158 11;  /* Amber/Yellow */
+  --chart-5: 239 68 68;   /* Error red */
 }
 
-/* Dark mode variant (optional - not primary) */
+/* ===================================
+   DARK MODE (Optional - Not Primary)
+   ===================================
+   Used by: Dark mode toggle (if implemented)
+   =================================== */
 .dark {
   --background: #1A1A1A;
   --foreground: #FFFFFF;
@@ -65,19 +104,19 @@
   --card-foreground: #FFFFFF;
   --popover: #2A2A2A;
   --popover-foreground: #FFFFFF;
-  --primary: #933558;
+  --primary: 59 130 246;  /* Lighter blue for dark mode */
   --primary-foreground: #FFFFFF;
   --secondary: #737373;
   --secondary-foreground: #FFFFFF;
   --muted: #2A2A2A;
   --muted-foreground: #9CA3AF;
-  --accent: #A54568;
+  --accent: 96 165 250;   /* Even lighter blue for dark mode */
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   --border: rgba(107, 114, 128, 0.3);
   --input: #2A2A2A;
-  --ring: #933558;
+  --ring: 59 130 246;
 }
 
 /* ========================================
@@ -108,7 +147,10 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Chat message typography */
+/* -------------------
+   Chat message typography
+   Used by: All chat messages (user and AI)
+   ------------------- */
 .chat-message {
   font-family: 'Source Serif 4', Georgia, serif;
   font-size: 15px;
@@ -116,7 +158,10 @@ body {
   font-weight: 400;
 }
 
-/* Button and UI typography */
+/* -------------------
+   Button and UI typography
+   Used by: Buttons, labels, UI text
+   ------------------- */
 .ui-text {
   font-family: 'Source Serif 4', Georgia, serif;
   font-weight: 500;
@@ -124,6 +169,7 @@ body {
 
 /* ========================================
    CUSTOM SCROLLBAR (Light Theme)
+   Used by: Chat area, AI Studio sidebar
    ======================================== */
 
 .chat-scrollbar {
@@ -146,15 +192,22 @@ body {
   transition: background 0.3s ease;
 }
 
+/* -------------------
+   Scrollbar hover with brand color
+   Used by: Chat scrollbar on hover
+   ------------------- */
 .chat-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(122, 41, 72, 0.5), rgba(122, 41, 72, 0.3));
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.5), rgba(37, 99, 235, 0.3));
 }
 
 /* ========================================
-   ANIMATIONS (Figma Style)
+   ANIMATIONS
    ======================================== */
 
-/* Chat bubble animations */
+/* -------------------
+   Chat bubble slide-in animation
+   Used by: All chat message bubbles when they appear
+   ------------------- */
 .chat-bubble-enter {
   animation: chatBubbleSlideIn 0.4s ease-out;
 }
@@ -192,28 +245,39 @@ body {
   }
 }
 
-/* Glow effect (Wine Red) */
+/* -------------------
+   Glow effect (Brand Blue)
+   Used by: Focus states, active elements
+   ------------------- */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(122, 41, 72, 0.3);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(122, 41, 72, 0.5);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
   }
 }
 
 /* ========================================
-   CHAT BUBBLES (Light Theme - 2b AHEAD)
+   CHAT BUBBLES
+   ========================================
+   Used by: Message display in chat interface
    ======================================== */
 
-/* User chat bubble (Wine Red) */
+/* -------------------
+   User chat bubble (Professional Blue)
+   Used by: User's messages in the chat
+   ------------------- */
 .user-bubble {
-  background: linear-gradient(135deg, #7A2948 0%, #933558 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(122, 41, 72, 0.2);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
 }
 
-/* Assistant chat bubble (Light Gray) */
+/* -------------------
+   Assistant/AI chat bubble (Light Gray)
+   Used by: AI persona's responses
+   ------------------- */
 .assistant-bubble {
   background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
   color: #1A1A1A;
@@ -221,37 +285,56 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Status bubble */
+/* -------------------
+   Status bubble
+   Used by: System messages, connection status
+   ------------------- */
 .status-bubble {
   background: #FAFAFA;
   color: #737373;
   border: 1px solid rgba(212, 212, 212, 0.6);
 }
 
-/* Error bubble */
+/* -------------------
+   Error bubble
+   Used by: Error messages in chat
+   ------------------- */
 .error-bubble {
   background: #EF4444;
   color: #FFFFFF;
 }
 
-/* Chat bubble shadows */
+/* -------------------
+   Chat bubble shadows
+   Used by: All message bubbles
+   ------------------- */
 .chat-bubble-shadow {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .chat-bubble-hover {
-  box-shadow: 0 4px 12px rgba(122, 41, 72, 0.15);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
 /* ========================================
-   MICROPHONE BUTTON (Wine Red Theme)
+   MICROPHONE BUTTON
+   ========================================
+   Used by: Voice input button in chat interface
    ======================================== */
 
+/* -------------------
+   Microphone idle state (Brand Blue)
+   Used by: Microphone button when not recording
+   ------------------- */
 .mic-button-idle {
-  background: linear-gradient(135deg, #7A2948 0%, #933558 100%);
-  box-shadow: 0 4px 16px rgba(122, 41, 72, 0.3), 0 0 20px rgba(122, 41, 72, 0.15);
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3), 0 0 20px rgba(37, 99, 235, 0.15);
 }
 
+/* -------------------
+   Microphone recording state (Success Green)
+   Used by: Microphone button while recording
+   ------------------- */
 .mic-button-recording {
   background: linear-gradient(135deg, #10B981 0%, #059669 100%);
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.2);
@@ -268,15 +351,25 @@ body {
 }
 
 /* ========================================
-   HEADER & FOOTER (Light Theme)
+   HEADER & FOOTER
+   ========================================
+   Used by: Page header and footer bars
    ======================================== */
 
+/* -------------------
+   Header background
+   Used by: Top navigation/header area with avatar and connect button
+   ------------------- */
 .header-bg {
   background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
   border-bottom: 1px solid rgba(212, 212, 212, 0.6);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+/* -------------------
+   Footer background
+   Used by: Bottom footer area (if present)
+   ------------------- */
 .footer-bg {
   background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
   border-top: 1px solid rgba(212, 212, 212, 0.6);
@@ -285,6 +378,8 @@ body {
 
 /* ========================================
    CONNECTION STATUS
+   ========================================
+   Used by: Connection status indicator
    ======================================== */
 
 .connection-status {
@@ -302,16 +397,28 @@ body {
   border: 2px solid var(--background);
 }
 
+/* -------------------
+   Connected state (Success Green)
+   Used by: When successfully connected to Azure OpenAI
+   ------------------- */
 .connection-status.connected::before {
   background: #10B981;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 
+/* -------------------
+   Connecting state (Warning Amber)
+   Used by: During connection establishment
+   ------------------- */
 .connection-status.connecting::before {
   background: #F59E0B;
   animation: connectionPulse 1s ease-in-out infinite;
 }
 
+/* -------------------
+   Disconnected state (Error Red)
+   Used by: When not connected
+   ------------------- */
 .connection-status.disconnected::before {
   background: #EF4444;
 }
@@ -335,6 +442,10 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+/* -------------------
+   Glass effect
+   Used by: Overlays, modals, floating panels
+   ------------------- */
 .glass-effect {
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.9);

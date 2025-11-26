@@ -53,77 +53,113 @@ const config: Config = {
         },
 
         // ========================================
-        // 2B AHEAD COLOR SYSTEM - Wine Red & Light Theme
+        // NEUTRAL COLOR SYSTEM - Professional Blue & Light Theme
+        // ========================================
+        //
+        // CUSTOMIZE: Replace these colors with your brand palette
+        // Each color is documented with which UI components use it
         // ========================================
 
         neutral: {
-          // 2b AHEAD Wine Red (Primary Brand Color)
-          'accent-primary': '#7A2948',    // Main 2b AHEAD wine red
-          'accent-hover': '#933558',      // Lighter for hover states
-          'accent-dark': '#5F1E37',       // Darker for pressed states
-          'accent-light': '#A54568',      // Even lighter variant
+          // -------------------
+          // PRIMARY ACCENT (Professional Blue)
+          // Used by: Connect/Disconnect buttons, microphone button (active),
+          //          avatar borders, active states, links, focus rings
+          // -------------------
+          'accent-primary': '#2563EB',    // Main brand blue - buttons, accents
+          'accent-hover': '#3B82F6',      // Lighter blue - hover states
+          'accent-dark': '#1D4ED8',       // Darker blue - pressed/active states
+          'accent-light': '#60A5FA',      // Even lighter - subtle accents
 
-          // Light Theme - White & Soft Grays
-          'lightest': '#FFFFFF',          // Pure white - main backgrounds
-          'off-white': '#FAFAFA',         // Subtle off-white
-          'light': '#F5F5F5',             // Light gray - cards, sections
-          'medium': '#E5E5E5',            // Medium gray - borders, dividers
-          'border': '#D4D4D4',            // Border gray
+          // -------------------
+          // BACKGROUNDS (White & Light Grays)
+          // Used by: Page backgrounds, cards, chat area, sidebar panels
+          // -------------------
+          'lightest': '#FFFFFF',          // Pure white - main page background, header
+          'off-white': '#FAFAFA',         // Subtle off-white - sidebar background
+          'light': '#F5F5F5',             // Light gray - cards, chat message backgrounds (AI)
+          'medium': '#E5E5E5',            // Medium gray - section dividers, disabled states
+          'border': '#D4D4D4',            // Border gray - card borders, input borders
 
-          // Text Colors (Dark on Light)
-          'text-primary': '#1A1A1A',      // Primary dark text
-          'text-secondary': '#525252',    // Secondary gray text
-          'text-muted': '#737373',        // Muted text
-          'text-light': '#A3A3A3',        // Very light text
+          // -------------------
+          // TEXT COLORS (Dark on Light backgrounds)
+          // Used by: All text content, headings, body copy, labels
+          // -------------------
+          'text-primary': '#1A1A1A',      // Main text - headings, body, labels
+          'text-secondary': '#525252',    // Secondary text - descriptions, timestamps
+          'text-muted': '#737373',        // Muted text - placeholders, disabled
+          'text-light': '#A3A3A3',        // Very light text - subtle hints
 
-          // Legacy dark values (minimal use)
-          'darkest': '#0A0A0A',           // Only for specific dark elements
-          'dark': '#1A1A1A',              // Dark text/elements
+          // -------------------
+          // LEGACY (Minimal use, keep for compatibility)
+          // -------------------
+          'darkest': '#0A0A0A',           // Only for very specific dark elements
+          'dark': '#1A1A1A',              // Used for specific dark text/elements
         },
 
         // ========================================
-        // LEGACY COLOR SYSTEM - Keeping for compatibility
+        // COMPONENT-SPECIFIC COLORS (Easy Access)
+        // ========================================
+        // These map directly to specific UI components
+        // Change these to customize individual parts of the interface
         // ========================================
 
-        // Main Brand Colors (2b AHEAD light theme)
         figma: {
-          // Core Accent (Wine Red)
-          'primary-wine': '#711d32',      // 2b AHEAD wine red
-          'secondary-wine': '#933558',    // Lighter wine variant
+          // -------------------
+          // PRIMARY BRAND COLOR
+          // Used by: Main branding elements, primary buttons, important accents
+          // -------------------
+          'primary-wine': '#2563EB',      // Main brand color (renamed from wine for clarity)
+          'secondary-wine': '#3B82F6',    // Lighter brand variant
 
-          // Accent Colors
-          'yellow': '#F59E0B',            // Amber accent
-          'green': '#10B981',             // Success green
-          'red': '#EF4444',               // Error/alert red
-          'purple': '#8B5CF6',            // Purple accent
+          // -------------------
+          // ACCENT COLORS (Functional)
+          // Used by: Status indicators, alerts, success states
+          // -------------------
+          'yellow': '#F59E0B',            // Warning/attention - amber accent
+          'green': '#10B981',             // Success/active - recording indicator, success messages
+          'red': '#EF4444',               // Error/alert - error messages, destructive actions
+          'purple': '#8B5CF6',            // Special accent - highlights, badges
 
-          // Backgrounds (Light Theme)
-          'bg-primary': '#FFFFFF',        // Main white background
-          'bg-light': '#FAFAFA',          // Subtle off-white
-          'bg-medium': '#F5F5F5',         // Light gray cards
-          'bg-dark': '#E5E5E5',           // Darker gray sections
-          'bg-darkest': '#D4D4D4',        // Borders/dividers
+          // -------------------
+          // BACKGROUNDS (Light Theme)
+          // Used by: Different UI regions and surfaces
+          // -------------------
+          'bg-primary': '#FFFFFF',        // Main content area background
+          'bg-light': '#FAFAFA',          // Sidebar, secondary panels
+          'bg-medium': '#F5F5F5',         // Cards, AI message bubbles
+          'bg-dark': '#E5E5E5',           // Dividers, section backgrounds
+          'bg-darkest': '#D4D4D4',        // Borders, input borders
 
-          // Text Colors (for light backgrounds)
-          'text-primary': '#1A1A1A',      // Main dark text
-          'text-secondary': '#525252',    // Secondary gray text
-          'text-muted': '#737373',        // Muted text
+          // -------------------
+          // TEXT COLORS (for light backgrounds)
+          // Used by: All text rendering
+          // -------------------
+          'text-primary': '#1A1A1A',      // Main body text, headings
+          'text-secondary': '#525252',    // Secondary info, subtitles
+          'text-muted': '#737373',        // Disabled text, placeholders
 
-          // Message Bubbles (Light Theme)
-          'user-message-start': '#7A2948',    // User: wine red gradient start
-          'user-message-end': '#933558',      // User: wine red gradient end
-          'assistant-message-start': '#F5F5F5', // Assistant: light gray
-          'assistant-message-end': '#FAFAFA',   // Assistant: off-white
+          // -------------------
+          // MESSAGE BUBBLES (Chat Interface)
+          // Used by: User and AI message backgrounds
+          // -------------------
+          'user-message-start': '#2563EB',    // User message gradient start (blue)
+          'user-message-end': '#3B82F6',      // User message gradient end (lighter blue)
+          'assistant-message-start': '#F5F5F5', // AI message start (light gray)
+          'assistant-message-end': '#FAFAFA',   // AI message end (off-white)
         },
 
-        // Chat-specific colors (for easy access) - Light theme
-        'chat-user-start': '#7A2948',
-        'chat-user-end': '#933558',
-        'chat-assistant-start': '#F5F5F5',
-        'chat-assistant-end': '#FAFAFA',
-        'chat-background': '#FFFFFF',
-        'chat-sidebar': '#FAFAFA',
-        'chat-header': '#FFFFFF',
+        // -------------------
+        // CHAT-SPECIFIC SHORTCUTS
+        // Direct mapping for quick access in chat components
+        // -------------------
+        'chat-user-start': '#2563EB',       // User bubble gradient start
+        'chat-user-end': '#3B82F6',         // User bubble gradient end
+        'chat-assistant-start': '#F5F5F5',  // AI bubble gradient start
+        'chat-assistant-end': '#FAFAFA',    // AI bubble gradient end
+        'chat-background': '#FFFFFF',       // Main chat area background
+        'chat-sidebar': '#FAFAFA',          // AI Studio sidebar background
+        'chat-header': '#FFFFFF',           // Header bar background
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -147,7 +183,6 @@ const config: Config = {
             height: '0'
           }
         },
-        // Figma-inspired animations
         'chat-bubble-slide-in': {
           from: {
             opacity: '0',
@@ -168,10 +203,10 @@ const config: Config = {
         },
         'glow': {
           '0%, 100%': {
-            boxShadow: '0 0 20px rgba(77, 90, 232, 0.4)'
+            boxShadow: '0 0 20px rgba(37, 99, 235, 0.4)'  // Updated to blue
           },
           '50%': {
-            boxShadow: '0 0 30px rgba(77, 90, 232, 0.6)'
+            boxShadow: '0 0 30px rgba(37, 99, 235, 0.6)'  // Updated to blue
           }
         },
         'pulse-scale': {
@@ -225,19 +260,30 @@ const config: Config = {
         'slide-in-left': 'slide-in-left 0.6s ease-out',
       },
       boxShadow: {
-        // Wine-red themed shadows (2b AHEAD)
-        'wine-sm': '0 2px 8px rgba(122, 41, 72, 0.2)',
-        'wine-md': '0 4px 12px rgba(122, 41, 72, 0.25)',
-        'wine-lg': '0 6px 20px rgba(122, 41, 72, 0.3)',
-        // Accent shadows
-        'green-sm': '0 2px 8px rgba(16, 185, 129, 0.2)',
-        'green-md': '0 4px 12px rgba(16, 185, 129, 0.25)',
-        'yellow': '0 4px 12px rgba(245, 158, 11, 0.25)',
-        // Light theme shadows
-        'chat-bubble': '0 2px 8px rgba(0, 0, 0, 0.08)',
-        'chat-bubble-hover': '0 4px 12px rgba(122, 41, 72, 0.15)',
-        'card': '0 1px 3px rgba(0, 0, 0, 0.1)',
-        'card-hover': '0 4px 12px rgba(0, 0, 0, 0.1)',
+        // -------------------
+        // BRAND SHADOWS (Blue themed)
+        // Used by: Buttons, cards with brand accent
+        // -------------------
+        'wine-sm': '0 2px 8px rgba(37, 99, 235, 0.2)',     // Connect button, small accents
+        'wine-md': '0 4px 12px rgba(37, 99, 235, 0.25)',   // Elevated cards
+        'wine-lg': '0 6px 20px rgba(37, 99, 235, 0.3)',    // Modal overlays, prominent elements
+
+        // -------------------
+        // FUNCTIONAL SHADOWS
+        // Used by: Success states, warnings, etc.
+        // -------------------
+        'green-sm': '0 2px 8px rgba(16, 185, 129, 0.2)',   // Recording indicator, success states
+        'green-md': '0 4px 12px rgba(16, 185, 129, 0.25)', // Success messages
+        'yellow': '0 4px 12px rgba(245, 158, 11, 0.25)',   // Warning messages, attention states
+
+        // -------------------
+        // NEUTRAL SHADOWS
+        // Used by: Chat bubbles, cards, general UI elevation
+        // -------------------
+        'chat-bubble': '0 2px 8px rgba(0, 0, 0, 0.08)',        // Message bubbles (both user & AI)
+        'chat-bubble-hover': '0 4px 12px rgba(37, 99, 235, 0.15)', // Message hover state
+        'card': '0 1px 3px rgba(0, 0, 0, 0.1)',                 // AI Studio tool cards
+        'card-hover': '0 4px 12px rgba(0, 0, 0, 0.1)',          // Card hover elevation
       },
       fontFamily: {
         'serif': ['Source Serif 4', 'Georgia', 'serif'],
@@ -249,17 +295,23 @@ const config: Config = {
         'chat-timestamp': ['12px', '1.4'],
       },
       backgroundImage: {
-        // Light theme gradients (2b AHEAD)
-        'gradient-light': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)',
-        'gradient-user': 'linear-gradient(135deg, #7A2948 0%, #933558 100%)',      // Wine red user bubbles
-        'gradient-assistant': 'linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%)', // Light gray assistant
+        // -------------------
+        // GRADIENTS - Light Theme (Professional Blue)
+        // Used by: Message bubbles, buttons, backgrounds
+        // -------------------
+        'gradient-light': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)',           // Page background fade
+        'gradient-user': 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',            // User message bubbles (blue)
+        'gradient-assistant': 'linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%)',       // AI message bubbles (light gray)
 
-        // UI gradients
-        'gradient-header': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)',
-        'gradient-footer': 'linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%)',
-        'gradient-sidebar': 'linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%)',
-        'gradient-button-wine': 'linear-gradient(135deg, #7A2948 0%, #933558 100%)',
-        'gradient-button-green': 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+        // -------------------
+        // UI ELEMENT GRADIENTS
+        // Used by: Header, footer, sidebar, buttons
+        // -------------------
+        'gradient-header': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)',          // Header bar
+        'gradient-footer': 'linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%)',          // Footer area
+        'gradient-sidebar': 'linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%)',         // AI Studio sidebar
+        'gradient-button-wine': 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',     // Primary buttons (Connect, etc.)
+        'gradient-button-green': 'linear-gradient(135deg, #10B981 0%, #059669 100%)',    // Success buttons, recording active
       },
       spacing: {
         'chat': '1.5rem',
