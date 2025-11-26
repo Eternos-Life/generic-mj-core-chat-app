@@ -1,0 +1,220 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Digital Twin Configuration",
+  "description": "Central configuration file for customizing the AI Digital Twin application. Replace all placeholder values with your actual data.",
+
+  "persona": {
+    "name": "{{AVATAR_NAME}}",
+    "title": "{{AVATAR_TITLE}}",
+    "subtitle": "{{AVATAR_SUBTITLE}}",
+    "organization": "{{ORG_NAME}}",
+    "roleDescription": "{{ROLE_DESCRIPTION}}",
+    "expertiseArea": "{{EXPERTISE_AREA}}",
+    "language": "de",
+    "avatarImage": "/avatar_headshot.png",
+    "avatarAlt": "{{AVATAR_NAME}} - {{AVATAR_TITLE}}",
+
+    "_examples": {
+      "name": "Dr. Jane Smith",
+      "title": "AI Ethics Researcher",
+      "subtitle": "Ethics & Responsible AI",
+      "organization": "Future Tech Institute",
+      "roleDescription": "leading researcher in AI ethics and responsible innovation",
+      "expertiseArea": "AI ethics, responsible innovation, and technology governance"
+    }
+  },
+
+  "ui": {
+    "siteTitle": "{{AVATAR_NAME}} - UARE.AI",
+    "siteDescription": "{{AVATAR_TITLE}} | Digital Twin Demo",
+    "welcomeHeader": "Willkommen bei {{AVATAR_NAME}}",
+    "welcomeMessage": "Klicken Sie auf die Schaltfläche „Verbinden", um Ihr Gespräch mit {{AVATAR_TITLE_ARTICLE}} zu beginnen.",
+    "introductionMessage": "Hallo! Ich bin {{AVATAR_NAME}}, {{AVATAR_TITLE}} und {{ROLE_DESCRIPTION}}. Ich helfe Ihnen gerne mit {{EXPERTISE_AREA_DESCRIPTION}}.",
+    "errorPrefix": "Error connecting to {{AVATAR_NAME}}:",
+
+    "_examples": {
+      "siteTitle": "Dr. Jane Smith - UARE.AI",
+      "siteDescription": "AI Ethics Researcher | Digital Twin Demo",
+      "welcomeHeader": "Willkommen bei Dr. Jane Smith",
+      "welcomeMessage": "Klicken Sie auf die Schaltfläche „Verbinden", um Ihr Gespräch mit der KI-Ethikforscherin zu beginnen.",
+      "introductionMessage": "Hallo! Ich bin Dr. Jane Smith, KI-Ethikforscherin und führende Expertin für verantwortungsvolle Innovation. Ich helfe Ihnen gerne mit ethischen Fragen zu KI und Technologie-Governance.",
+      "errorPrefix": "Error connecting to Dr. Jane Smith:"
+    }
+  },
+
+  "search": {
+    "toolDescription": "Search the comprehensive {{DOMAIN}} knowledge base containing {{CONTENT_TYPES}}. CRITICAL: You MUST search for ALL types of {{QUESTION_TYPES}} questions.",
+    "contentCategories": [
+      "{{CATEGORY_1}}: {{DESCRIPTION}}",
+      "{{CATEGORY_2}}: {{DESCRIPTION}}",
+      "{{CATEGORY_3}}: {{DESCRIPTION}}",
+      "{{CATEGORY_4}}: {{DESCRIPTION}}",
+      "{{CATEGORY_5}}: {{DESCRIPTION}}",
+      "{{CATEGORY_6}}: {{DESCRIPTION}}",
+      "{{CATEGORY_7}}: {{DESCRIPTION}}",
+      "{{CATEGORY_8}}: {{DESCRIPTION}}"
+    ],
+
+    "_examples": {
+      "toolDescription": "Search the comprehensive AI ethics research knowledge base containing case studies, ethical frameworks, and policy recommendations. CRITICAL: You MUST search for ALL types of ethics and governance questions.",
+      "contentCategories": [
+        "ETHICAL FRAMEWORKS: Moral theories, ethical principles, decision-making frameworks",
+        "POLICY & GOVERNANCE: Regulations, standards, oversight mechanisms, compliance",
+        "CASE STUDIES: Real-world ethical dilemmas, successful implementations, lessons learned",
+        "BIAS & FAIRNESS: Algorithmic bias, fairness metrics, mitigation strategies",
+        "PRIVACY & SECURITY: Data protection, privacy-preserving techniques, security frameworks",
+        "TRANSPARENCY: Explainability, interpretability, accountability mechanisms",
+        "SOCIAL IMPACT: Societal implications, equity considerations, stakeholder analysis",
+        "BEST PRACTICES: Industry standards, implementation guidelines, ethical design patterns"
+      ]
+    }
+  },
+
+  "prompts": {
+    "systemConstraint": "SYSTEM OVERRIDE: You are {{AVATAR_NAME}}, a {{AVATAR_TITLE}} responding to a question about {{DOMAIN}}.\n\nCRITICAL POLICY: Speak as yourself - \"I'm {{AVATAR_NAME}}\" or \"I\". Only reference information and insights from your knowledge base. Do not invent statistics or claims.",
+    "welcomeApproach": "When starting conversations, introduce yourself naturally: \"I'm {{AVATAR_NAME}}, {{AVATAR_TITLE}} and {{ROLE_DESCRIPTION}}. I {{EXPERTISE_DESCRIPTION}}. What would you like to explore?\"",
+    "queryEnhancement": {
+      "personal": "{{AVATAR_NAME}} {{AVATAR_TITLE}} {{ORG_NAME}} approach methodology",
+      "domain": "{{DOMAIN_KEYWORDS}} analysis framework insights"
+    },
+
+    "_examples": {
+      "systemConstraint": "SYSTEM OVERRIDE: You are Dr. Jane Smith, an AI Ethics Researcher responding to a question about AI ethics and responsible innovation.\n\nCRITICAL POLICY: Speak as yourself - \"I'm Dr. Jane Smith\" or \"I\". Only reference information and insights from your knowledge base. Do not invent statistics or claims.",
+      "welcomeApproach": "When starting conversations, introduce yourself naturally: \"I'm Dr. Jane Smith, AI Ethics Researcher and leading expert in responsible innovation. I help organizations navigate ethical challenges in AI development. What would you like to explore?\"",
+      "queryEnhancement": {
+        "personal": "Dr. Jane Smith AI ethics researcher Future Tech Institute approach methodology",
+        "domain": "AI ethics responsible innovation governance framework analysis"
+      }
+    }
+  },
+
+  "theme": {
+    "name": "{{THEME_NAME}}",
+    "primaryColor": "#7A2948",
+    "primaryColorHover": "#933558",
+    "primaryColorDark": "#5F1E37",
+    "primaryColorLight": "#A54568",
+    "accentColor": "#933558",
+    "backgroundColor": "#FFFFFF",
+    "offWhite": "#FAFAFA",
+    "lightGray": "#F5F5F5",
+    "textDark": "#1A1A1A",
+    "textSecondary": "#525252",
+    "activeColor": "#10B981",
+    "errorColor": "#EF4444",
+
+    "_note": "These colors define the visual brand. Update to match your organization's brand colors.",
+    "_examples": {
+      "name": "Professional Blue Theme",
+      "primaryColor": "#2563EB",
+      "primaryColorHover": "#3B82F6",
+      "primaryColorDark": "#1D4ED8",
+      "primaryColorLight": "#60A5FA"
+    }
+  },
+
+  "branding": {
+    "poweredBy": "Powered by Uare.AI",
+    "logo": "/uare-logo-negative.png",
+    "logoWhite": "/uare-logo-white.svg",
+    "favicon": "/favicon-u.png",
+    "companyName": "UARE.AI",
+    "companyUrl": "https://uare.ai",
+    "supportContact": "support@uare.ai",
+
+    "_note": "Update with your organization's branding information"
+  },
+
+  "sidebar": {
+    "title": "K.I.-Studio",
+    "tools": [
+      {
+        "id": "summary",
+        "label": "Zusammenfassung",
+        "icon": "FileText",
+        "placeholder": "Thema für Zusammenfassung...",
+        "prompt": "Erstelle eine prägnante Zusammenfassung zu {{topic}} basierend auf aktuellen Trends und Forschungsergebnissen."
+      },
+      {
+        "id": "insights",
+        "label": "Trenderkenntnisse",
+        "icon": "TrendingUp",
+        "placeholder": "Bereich für Trendanalyse...",
+        "prompt": "Analysiere die wichtigsten Trends und Entwicklungen in {{topic}}. Identifiziere Schlüsselmuster und strategische Implikationen."
+      },
+      {
+        "id": "forecast",
+        "label": "Zukunftsprognose",
+        "icon": "Sparkles",
+        "placeholder": "Thema für Prognose...",
+        "prompt": "Entwickle eine fundierte Zukunftsprognose für {{topic}} basierend auf aktuellen Megatrends und Entwicklungsmuster."
+      },
+      {
+        "id": "strategy",
+        "label": "Strategieempfehlung",
+        "icon": "Target",
+        "placeholder": "Strategisches Thema...",
+        "prompt": "Gib strategische Empfehlungen für {{topic}}. Berücksichtige aktuelle Trends und zukünftige Entwicklungen."
+      }
+    ],
+
+    "_note": "Customize sidebar tools based on your persona's expertise area",
+    "_examples": {
+      "title": "AI Studio",
+      "tools": [
+        {
+          "id": "ethics-analysis",
+          "label": "Ethics Analysis",
+          "icon": "Scale",
+          "placeholder": "AI system or scenario...",
+          "prompt": "Analyze the ethical implications of {{topic}}, considering fairness, privacy, transparency, and social impact."
+        }
+      ]
+    }
+  },
+
+  "suggestedQuestions": {
+    "header": "Fragen Sie mich zum Beispiel:",
+    "questions": [
+      "{{QUESTION_1}}",
+      "{{QUESTION_2}}",
+      "{{QUESTION_3}}",
+      "{{QUESTION_4}}"
+    ],
+
+    "_examples": {
+      "header": "Fragen Sie mich zum Beispiel:",
+      "questions": [
+        "Welche ethischen Herausforderungen gibt es bei der Entwicklung von KI-Systemen?",
+        "Wie können wir Fairness in Machine-Learning-Modellen sicherstellen?",
+        "Was sind die wichtigsten Governance-Frameworks für verantwortungsvolle KI?",
+        "Wie gehen wir mit dem Spannungsfeld zwischen Innovation und ethischer Verantwortung um?"
+      ]
+    }
+  },
+
+  "_instructions": {
+    "setup": [
+      "1. Copy this file to config.json (do not commit config.json to version control)",
+      "2. Replace all {{PLACEHOLDER}} values with your actual data",
+      "3. Update persona information to match your digital twin",
+      "4. Customize UI text for your language and brand",
+      "5. Define search categories relevant to your domain",
+      "6. Adjust theme colors to match your brand palette",
+      "7. Update sidebar tools for your expertise area",
+      "8. Create suggested questions appropriate to your persona",
+      "9. Update prompts/generic-persona-instructions.ts with detailed persona definition",
+      "10. Replace /public/avatar_headshot.png with your persona's image"
+    ],
+    "deployment": [
+      "Before deploying:",
+      "- Verify all {{PLACEHOLDERS}} are replaced",
+      "- Test with your custom persona prompts",
+      "- Ensure avatar image is in place",
+      "- Update .env with your API keys (see .env.example)",
+      "- Run build and test all functionality",
+      "- Review accessibility (alt text, ARIA labels)",
+      "- Test voice pronunciation if using custom voice"
+    ]
+  }
+}

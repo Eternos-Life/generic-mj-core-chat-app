@@ -1,0 +1,145 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User management and preferences
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  displayName       String?
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+  lastActiveAt      DateTime @default(now()) @map("last_active_at")
+  
+  // User preferences stored as JSON
+  preferences       Json     @default("{}")
+  
+  // GDPR compliance fields
+  gdprConsentGiven  Boolean  @default(false) @map("gdpr_consent_given")
+  gdprConsentDate   DateTime? @map("gdpr_consent_date")
+  dataDeletedAt     DateTime? @map("data_deleted_at")
+  
+  // Relationships
+  conversations     Conversation[]
+  analyticsEvents   AnalyticsEvent[]
+  auditLogs         UserDataAudit[]
+  
+  @@map("users")
+}
+
+// Chat sessions - stored forever
+model Conversation {
+  id            String   @id @default(cuid())
+  userId        String?  @map("user_id")  // Nullable for anonymous sessions
+  title         String?  // Auto-generated or user-defined
+  sessionId     String?  @map("session_id") // Link to Zustand session
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  
+  // Conversation metadata (model used, voice settings, etc.)
+  metadata      Json     @default("{}")
+  
+  // Relationships
+  user          User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  messages      Message[]
+  
+  @@map("conversations")
+}
+
+// Individual messages in conversations
+model Message {
+  id             String   @id @default(cuid())
+  conversationId String   @map("conversation_id")
+  role           MessageRole
+  content        String
+  createdAt      DateTime @default(now()) @map("created_at")
+  
+  // Message metadata (search results, function calls, audio transcription, etc.)
+  metadata       Json     @default("{}")
+  
+  // Relationships
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  
+  @@map("messages")
+}
+
+// Message types matching your current system
+enum MessageRole {
+  user
+  assistant
+  status
+  error
+  debug
+  special
+}
+
+// Analytics and usage tracking
+model AnalyticsEvent {
+  id          String   @id @default(cuid())
+  userId      String?  @map("user_id")  // Nullable for anonymous events
+  sessionId   String?  @map("session_id")
+  eventType   EventType @map("event_type")
+  createdAt   DateTime @default(now()) @map("created_at")
+  
+  // Event-specific data (search queries, voice usage, errors, etc.)
+  eventData   Json     @default("{}") @map("event_data")
+  
+  // Relationships
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  @@map("analytics_events")
+}
+
+// Analytics event types
+enum EventType {
+  conversation_started
+  conversation_ended
+  message_sent
+  voice_recording_started
+  voice_recording_stopped
+  search_query_executed
+  search_results_received
+  function_call_executed
+  connection_established
+  connection_failed
+  error_occurred
+  user_login
+  user_logout
+  page_view
+  feature_used
+}
+
+// GDPR compliance and audit logging
+model UserDataAudit {
+  id            String   @id @default(cuid())
+  userId        String   @map("user_id")
+  action        AuditAction
+  details       Json     @default("{}")
+  performedAt   DateTime @default(now()) @map("performed_at")
+  ipAddress     String?  @map("ip_address")
+  userAgent     String?  @map("user_agent")
+  
+  // Relationships
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("user_data_audit")
+}
+
+// GDPR audit actions
+enum AuditAction {
+  consent_given
+  consent_withdrawn
+  data_exported
+  data_deleted
+  data_accessed
+  preferences_updated
+  account_created
+  account_deleted
+}

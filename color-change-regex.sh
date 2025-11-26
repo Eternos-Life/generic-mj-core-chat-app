@@ -1,0 +1,31 @@
+sed -i '' \
+  -e 's/background: "hsl(244, 180%, 0%)",/background: "hsl(24, 100%, 50%)",/g' \
+  -e 's/background: "hsl(63, 63%, 70%)",/background: "hsl(213, 94%, 60%)",/g' \
+  -e 's/border: "1px solid hsl(161, 43%, 43%, 0\.3)",/border: "1px solid hsl(213, 94%, 70%, 0.3)",/g' \
+  -e 's/background: "hsl(0, 58%, 40%)",/background: "hsl(213, 94%, 70%)",/g' \
+  -e 's/background: "hsl(6, 78%, 57%)",/background: "hsl(24, 100%, 50%)",/g' \
+  -e 's/const fillHue = 45;/const fillHue = 213;/g' \
+  -e 's/const fillColour = "#F4B400";/const fillColour = "#3B82F6";/g' \
+  -e 's/const strokeColour = "#A12B2B";/const strokeColour = "#FF6600";/g' \
+  -e 's/const dynamicLightness = normalizedFrequencyValue \* 0\.8;/const dynamicLightness = 0.4 + normalizedFrequencyValue * 0.4;/g' \
+  -e 's/background: "hsl(45, 100%, 48%)",/background: "hsl(24, 100%, 50%)",/g' \
+  -e "s/borderColor: 'hsl(45, 100%, 48%)'/borderColor: 'hsl(24, 100%, 50%)'/g" \
+  -e 's/color: hsl(0, 0%, 12%);/color: hsl(213, 94%, 60%);/g' \
+  -e 's/background: "hsl(24, 24%, 27%)"/background: "hsl(220, 26%, 14%)"/g' \
+  -e "s/background: 'hsl(39, 39%, 42%)',/background: 'hsl(220, 20%, 18%)',/g" \
+  -e 's/filter: "drop-shadow(0 2px 4px rgba(244, 180, 0, 0\.3))"/filter: "drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3))"/g' \
+  -e 's/filter: "drop-shadow(0 3px 8px rgba(244, 180, 0, 0\.2))"/filter: "drop-shadow(0 3px 8px rgba(59, 130, 246, 0.2))"/g' \
+  -e "s/borderBottomColor: 'rgba(244, 180, 0, 0\.3)'/borderBottomColor: 'rgba(59, 130, 246, 0.3)'/g" \
+  -e "s/color: 'hsl(0, 58%, 40%)',/color: 'hsl(0, 0%, 95%)',/g" \
+  -e "s/color: showVisualizer ? 'hsl(6, 78%, 57%)' : 'hsl(45, 100%, 48%)',/color: showVisualizer ? 'hsl(24, 100%, 50%)' : 'hsl(0, 0%, 100%)',/g" \
+  -e "s/borderColor: showVisualizer ? 'hsl(6, 78%, 57%)' : 'hsl(45, 100%, 48%)',/borderColor: showVisualizer ? 'hsl(24, 100%, 50%)' : 'hsl(0, 0%, 100%)',/g" \
+  -e 's/color: "hsl(0, 0%, 12%)",/color: "hsl(0, 0%, 100%)",/g' \
+  -e "s/color: message\.type === 'user' ? 'rgba(30, 30, 30, 0\.7)' : 'rgba(0, 0, 0, 0\.6)'/color: 'rgba(255, 255, 255, 0.7)'/g" \
+  -e "s/borderTopColor: 'rgba(244, 180, 0, 0\.3)'/borderTopColor: 'rgba(59, 130, 246, 0.3)'/g" \
+  -e 's/? "hsl(6, 78%, 57%)"/? "hsl(0, 73%, 48%)"/g' \
+  -e 's/: "hsl(45, 100%, 48%)",/: "hsl(24, 100%, 50%)",/g' \
+  -e 's/? "0 4px 20px rgba(231, 76, 60, 0\.4)"/? "0 4px 20px rgba(220, 38, 38, 0.4)"/g' \
+  -e 's/: "0 2px 8px rgba(244, 180, 0, 0\.3)"/: "0 2px 8px rgba(255, 102, 0, 0.3)"/g' \
+  -e 's/from-yellow-400 to-green-400/from-blue-400 to-orange-400/g' \
+  -e "s/color: 'hsl(0, 0%, 98%)',/color: 'hsl(0, 0%, 100%)',/g" \
+  chat-interface.tsx

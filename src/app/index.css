@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* IDM Color Palette CSS Variables */
+:root {
+  /* IDM Primary Brand Colors */
+  --idm-gold: 244 180 0; /* #F4B400 - Gold/Yellow dot */
+  --idm-burgundy: 161 43 43; /* #A12B2B - Dark red */
+  --idm-coral: 231 76 60; /* #E74C3C - Coral/Orange-red */
+  --idm-gray: 107 107 107; /* #6B6B6B - Professional gray */
+  --idm-white: 255 255 255; /* #FFFFFF - White */
+  --idm-dark: 30 30 30; /* #1E1E1E - Dark background */
+  
+  /* Dark Theme Colors using IDM Palette */
+  --background: 15 23 42; /* Very dark blue-gray background */
+  --foreground: 248 250 252; /* Light text */
+  --primary: 244 180 0; /* IDM gold */
+  --primary-foreground: 30 30 30; /* Dark text on gold */
+  
+  /* UI Component Colors */
+  --card: 30 41 59; /* Dark card background */
+  --card-foreground: 248 250 252; /* Light text on cards */
+  --popover: 30 41 59;
+  --popover-foreground: 248 250 252;
+  --secondary: 161 43 43; /* IDM burgundy */
+  --secondary-foreground: 255 255 255; /* White text on burgundy */
+  --muted: 51 65 85; /* Muted backgrounds */
+  --muted-foreground: 148 163 184; /* Muted text */
+  --accent: 231 76 60; /* IDM coral accent */
+  --accent-foreground: 255 255 255; /* White text on coral */
+  --destructive: 220 38 38; /* Red for errors */
+  --destructive-foreground: 255 255 255;
+  --border: 51 65 85; /* Subtle borders */
+  --input: 30 41 59; /* Input backgrounds */
+  --ring: 244 180 0; /* Focus rings in IDM gold */
+  --radius: 0.75rem;
+  
+  /* IDM Chat Interface Colors */
+  --chat-user-bg: 244 180 0; /* User messages in IDM gold */
+  --chat-user-text: 30 30 30; /* Dark text on gold */
+  --chat-assistant-bg: 51 65 85; /* Assistant messages in dark gray */
+  --chat-assistant-text: 248 250 252; /* Light text on dark */
+  --chat-status-bg: 161 43 43; /* Status messages in IDM burgundy */
+  --chat-error-bg: 220 38 38; /* Error messages in red */
+  --chat-background: 15 23 42; /* Main chat background */
+  --chat-sidebar: 30 41 59; /* Sidebar background */
+  --chat-header: 51 65 85; /* Header background */
+  
+  /* Shadow and Effects */
+  --chat-bubble-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.3);
+  --chat-hover-shadow: 0 6px 20px 0 rgb(244 180 0 / 0.2);
+}
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Typography */
+.font-serif {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Chat message typography */
+.chat-message {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Button and UI typography */
+.ui-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+}
+
+/* Custom scrollbar for chat area */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--idm-gold) / 0.3);
+  border-radius: 3px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--idm-gold) / 0.5);
+}
+
+/* Chat bubble animations */
+.chat-bubble-enter {
+  animation: chatBubbleSlideIn 0.3s ease-out;
+}
+
+@keyframes chatBubbleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* IDM Avatar Solid Colors */
+.cnbc-avatar-primary,
+.idm-avatar-primary {
+  background: hsl(var(--idm-gold));
+  color: hsl(var(--idm-dark));
+}
+
+.cnbc-avatar-secondary,
+.idm-avatar-secondary {
+  background: hsl(var(--idm-burgundy));
+  color: hsl(var(--idm-white));
+}
+
+/* Chat bubble shadows */
+.chat-bubble-shadow {
+  box-shadow: var(--chat-bubble-shadow);
+}
+
+.chat-bubble-hover {
+  box-shadow: var(--chat-hover-shadow);
+}
+
+/* Microphone button states with IDM colors */
+.mic-button-idle {
+  background: hsl(var(--idm-gold));
+  color: hsl(var(--idm-dark));
+  transition: all 0.3s ease-in-out;
+}
+
+.mic-button-idle:hover {
+  background: hsl(var(--idm-gold) / 0.9);
+  box-shadow: var(--chat-hover-shadow);
+}
+
+.mic-button-recording {
+  background: hsl(var(--idm-gold));
+  color: hsl(var(--idm-dark));
+  box-shadow: 0 4px 20px hsl(var(--idm-gold) / 0.4);
+  animation: micPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px hsl(var(--idm-gold) / 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px hsl(var(--idm-gold) / 0.6);
+  }
+}
+
+/* Chat bubbles with IDM styling - HIGH CONTRAST */
+.user-bubble {
+  background: hsl(var(--chat-user-bg));
+  color: hsl(var(--chat-user-text));
+  border: 1px solid hsl(var(--idm-gold) / 0.3);
+  font-weight: 500;
+}
+
+.assistant-bubble {
+  background: hsl(var(--chat-assistant-bg));
+  color: hsl(var(--chat-assistant-text));
+  border: 1px solid hsl(var(--idm-burgundy) / 0.3);
+  box-shadow: var(--chat-bubble-shadow);
+}
+
+.status-bubble {
+  background: hsl(var(--chat-status-bg));
+  color: hsl(var(--idm-white));
+}
+
+.error-bubble {
+  background: hsl(var(--chat-error-bg));
+  color: hsl(var(--idm-white));
+}
+
+.special-bubble {
+  background: hsl(var(--idm-coral));
+  color: hsl(var(--idm-white));
+}
+
+/* Connection status indicator with IDM colors */
+.connection-status {
+  position: relative;
+}
+
+.connection-status::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid hsl(var(--background));
+}
+
+.connection-status.connected::before {
+  background: hsl(var(--idm-coral));
+}
+
+.connection-status.connecting::before {
+  background: hsl(var(--idm-gold));
+  animation: connectionPulse 1s ease-in-out infinite;
+}
+
+.connection-status.disconnected::before {
+  background: hsl(var(--destructive));
+}
+
+@keyframes connectionPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* IDM-themed buttons - NO GRADIENTS */
+.cnbc-button-primary,
+.idm-button-primary {
+  background: hsl(var(--idm-gold));
+  color: hsl(var(--idm-dark));
+  border: 1px solid hsl(var(--idm-gold));
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.cnbc-button-primary:hover,
+.idm-button-primary:hover {
+  background: hsl(var(--idm-gold) / 0.9);
+  box-shadow: var(--chat-hover-shadow);
+}
+
+.cnbc-button-secondary,
+.idm-button-secondary {
+  background: hsl(var(--idm-burgundy));
+  color: hsl(var(--idm-white));
+  border: 1px solid hsl(var(--idm-burgundy));
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.cnbc-button-secondary:hover,
+.idm-button-secondary:hover {
+  background: hsl(var(--idm-burgundy) / 0.9);
+}
+
+.cnbc-button-tertiary,
+.idm-button-tertiary {
+  background: hsl(var(--idm-coral));
+  color: hsl(var(--idm-white));
+  border: 1px solid hsl(var(--idm-coral));
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.cnbc-button-tertiary:hover,
+.idm-button-tertiary:hover {
+  background: hsl(var(--idm-coral) / 0.9);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Glass effect with IDM colors */
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background: hsl(var(--chat-background) / 0.95);
+  border: 1px solid hsl(var(--idm-gold) / 0.2);
+}
+
+/* Header styling with IDM colors */
+.header-bg {
+  background: hsl(var(--chat-header));
+  border-bottom: 1px solid hsl(var(--idm-gold) / 0.2);
+}
+
+/* Sidebar styling with IDM colors */
+.sidebar-bg {
+  background: hsl(var(--chat-sidebar));
+  border-right: 1px solid hsl(var(--idm-burgundy) / 0.2);
+}
+
+/* Developer mode panel with IDM styling */
+.dev-panel {
+  background: hsl(var(--muted));
+  border-top: 1px solid hsl(var(--idm-gold) / 0.3);
+  font-family: 'Inter', monospace;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Input styling with IDM colors */
+.cnbc-input,
+.idm-input {
+  background: hsl(var(--input));
+  border: 1px solid hsl(var(--idm-burgundy) / 0.3);
+  color: hsl(var(--foreground));
+  transition: all 0.3s ease-in-out;
+}
+
+.cnbc-input:focus,
+.idm-input:focus {
+  border-color: hsl(var(--idm-gold));
+  box-shadow: 0 0 0 3px hsl(var(--idm-gold) / 0.2);
+}
+
+/* Toggle switch with IDM colors */
+.cnbc-switch,
+.idm-switch {
+  background: hsl(var(--muted));
+}
+
+.cnbc-switch[data-state="checked"],
+.idm-switch[data-state="checked"] {
+  background: hsl(var(--idm-gold));
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .chat-container {
+    padding: 1rem;
+  }
+  
+  .chat-bubble {
+    max-width: 90%;
+  }
+  
+  .avatar-large {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .chat-message {
+    font-size: 14px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .chat-bubble {
+    border: 2px solid hsl(var(--foreground));
+  }
+  
+  .cnbc-button-primary,
+  .idm-button-primary {
+    border: 2px solid hsl(var(--idm-dark));
+  }
+  
+  .user-bubble {
+    border: 2px solid hsl(var(--idm-dark));
+  }
+  
+  .assistant-bubble {
+    border: 2px solid hsl(var(--idm-burgundy));
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
