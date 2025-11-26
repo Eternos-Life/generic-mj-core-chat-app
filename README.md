@@ -109,6 +109,7 @@ pnpm run start
 **UARE.AI Support**: support@uare.ai
 
 For detailed docs, see:
+- **CUSTOMIZATION_GUIDE.md** - Complete guide for customizing this template
 - .env.example - Environment setup
 - config.example.json - Configuration guide
 - USER_GUIDE.md - End-user documentation

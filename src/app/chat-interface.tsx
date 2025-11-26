@@ -197,7 +197,7 @@ const ChatInterface = () => {
     <div className="w-24 h-24 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden border-[3px] border-neutral-accent-primary">
       <img
         src="/avatar_headshot.png"
-        alt="{{AVATAR_NAME}} - {{AVATAR_TITLE}}"
+        alt="AVATAR_NAME - AVATAR_TITLE"
         className="w-full h-full object-cover"
         style={{ objectPosition: 'center 20%', transform: 'scale(1.3)' }}
       />
@@ -1021,10 +1021,13 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
                 <CoachAvatar />
                 <div>
                   <h1 className="desktop:text-[2rem] text-[1.75rem] leading-tight max-desktop:text-[1.5rem] max-tablet:text-[1.25rem] font-semibold text-neutral-text-primary" style={{ letterSpacing: '-0.02em' }}>
-                    {/* CUSTOMIZE: Replace with your avatar name */}
-                    {{AVATAR_NAME}}
+                    {/* CUSTOMIZE: Replace "AVATAR_NAME" with your persona's name */}
+                    AVATAR_NAME
                   </h1>
-                  <p className="desktop:text-[17px] text-base text-neutral-text-secondary mt-1">{/* CUSTOMIZE: Replace with subtitle */}{{AVATAR_SUBTITLE}}</p>
+                  <p className="desktop:text-[17px] text-base text-neutral-text-secondary mt-1">
+                    {/* CUSTOMIZE: Replace "AVATAR_SUBTITLE" with your subtitle */}
+                    AVATAR_SUBTITLE
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -1074,9 +1077,9 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                       </svg>
                     </div>
-                    {/* CUSTOMIZE: Replace with your welcome text */}
-                    <h3 className="desktop:text-[22px] text-xl font-semibold text-neutral-text-primary mb-3">Willkommen bei {{AVATAR_NAME}}</h3>
-                    <p className="desktop:text-[17px] text-base text-neutral-text-secondary max-w-md mb-6">Klicken Sie auf die Schaltfläche „Verbinden", um Ihr Gespräch mit {{AVATAR_TITLE_ARTICLE}} zu beginnen.</p>
+                    {/* CUSTOMIZE: Replace "AVATAR_NAME" and welcome text with your persona */}
+                    <h3 className="desktop:text-[22px] text-xl font-semibold text-neutral-text-primary mb-3">Willkommen bei AVATAR_NAME</h3>
+                    <p className="desktop:text-[17px] text-base text-neutral-text-secondary max-w-md mb-6">Klicken Sie auf die Schaltfläche „Verbinden", um Ihr Gespräch mit AVATAR_TITLE zu beginnen.</p>
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-8">
