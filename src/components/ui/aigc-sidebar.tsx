@@ -31,51 +31,52 @@ type GeneratorConfig = {
   sample: string;
 };
 
+// CUSTOMIZE: Update these tools with your domain-specific content generation options
 const CONTENT_TOOLS: GeneratorConfig[] = [
   {
     id: "summary",
-    label: "Zusammenfassung",
-    description: "Erstelle eine prägnante Zusammenfassung",
+    label: "Summary",
+    description: "Create a concise summary",
     icon: FileText,
     accent: "#2563EB",
     sample:
-      "📄 Zusammenfassung\nWichtige Punkte aus dem Gespräch, einschließlich Haupttrends und strategischer Erkenntnisse.",
+      "📄 Summary\nKey points from the conversation, including main insights and strategic findings.",
   },
   {
     id: "key-insights",
-    label: "Wichtige Trenderkenntnisse",
-    description: "Extrahiere die wichtigsten Trends",
+    label: "Key Insights",
+    description: "Extract the most important insights",
     icon: Lightbulb,
     accent: "#F59E0B",
     sample:
-      "💡 Wichtige Trenderkenntnisse\nIdentifizierte Megatrends und strategische Muster aus der Analyse.",
+      "💡 Key Insights\nIdentified patterns and strategic observations from the analysis.",
   },
   {
     id: "strategic-recommendations",
-    label: "Strategische Empfehlungen",
-    description: "Entwickle strategische Handlungsempfehlungen",
+    label: "Strategic Recommendations",
+    description: "Develop strategic action recommendations",
     icon: ShieldCheck,
     accent: "#10B981",
     sample:
-      "🎯 Strategische Empfehlungen\nHandlungsempfehlungen basierend auf identifizierten Zukunftstrends und strategischer Vorausschau.",
+      "🎯 Strategic Recommendations\nAction recommendations based on identified trends and strategic foresight.",
   },
   {
-    id: "trend-frameworks",
-    label: "Trend-Frameworks",
-    description: "Zugriff auf strategische Rahmenwerke",
+    id: "frameworks",
+    label: "Frameworks",
+    description: "Access strategic frameworks",
     icon: FileText,
     accent: "#8B5CF6",
     sample:
-      "📋 Trend-Frameworks\nStrategische Rahmenwerke und Methoden der Zukunftsforschung.",
+      "📋 Frameworks\nStrategic frameworks and methodologies for analysis.",
   },
   {
     id: "scenario-planning",
-    label: "Szenario-Planung",
-    description: "Entwickle Zukunftsszenarien",
+    label: "Scenario Planning",
+    description: "Develop future scenarios",
     icon: CheckCircle2,
     accent: "#3B82F6",
     sample:
-      "🔮 Szenario-Planung\nMögliche Zukunftsszenarien basierend auf aktuellen Trendmustern und Entwicklungen.",
+      "🔮 Scenario Planning\nPossible future scenarios based on current patterns and developments.",
   },
 ];
 
@@ -140,8 +141,8 @@ export function AIGCSidebar({ messages, isConnected, className }: AIGCSidebarPro
             <Sparkles className="h-5 w-5 text-neutral-accent-primary" />
           </div>
           <div>
-            <p className="desktop:text-[22px] text-[20px] font-semibold text-neutral-text-primary">K.I.-Studio</p>
-            <p className="desktop:text-[16px] text-[15px] text-neutral-text-secondary">Generiere Inhalte aus deinem Gespräch</p>
+            <p className="desktop:text-[22px] text-[20px] font-semibold text-neutral-text-primary">AI Studio</p>
+            <p className="desktop:text-[16px] text-[15px] text-neutral-text-secondary">Generate content from your conversation</p>
           </div>
         </div>
       </header>
@@ -152,8 +153,8 @@ export function AIGCSidebar({ messages, isConnected, className }: AIGCSidebarPro
             <Brain className="h-8 w-8 text-neutral-text-muted" />
           </div>
           <div>
-            <p className="desktop:text-[18px] text-[17px] font-semibold text-neutral-text-primary">Verbinden, um Inhalte zu generieren</p>
-            <p className="desktop:text-[15px] text-[14px] text-neutral-text-secondary">Das KI-Studio wird aktiviert, sobald deine Sitzung beginnt.</p>
+            <p className="desktop:text-[18px] text-[17px] font-semibold text-neutral-text-primary">Connect to generate content</p>
+            <p className="desktop:text-[15px] text-[14px] text-neutral-text-secondary">The AI Studio will activate once your session begins.</p>
           </div>
         </div>
       ) : selectedTool ? (
@@ -164,7 +165,7 @@ export function AIGCSidebar({ messages, isConnected, className }: AIGCSidebarPro
               className="flex items-center gap-2 desktop:text-[15px] text-[14px] font-semibold uppercase tracking-wider text-neutral-text-secondary hover:text-neutral-text-primary transition-colors"
             >
               <ChevronRight className="h-4 w-4 rotate-180" />
-              Zurück zu Tools
+              Back to Tools
             </button>
           </div>
           <div className="flex-1 overflow-y-auto p-6 bg-white">
@@ -182,12 +183,12 @@ export function AIGCSidebar({ messages, isConnected, className }: AIGCSidebarPro
                 </div>
               </div>
               <div className="rounded-xl bg-neutral-light border-[3px] border-neutral-accent-primary p-4">
-                <p className="desktop:text-[15px] text-[14px] font-semibold uppercase tracking-wider text-neutral-text-muted mb-2">Beispielausgabe</p>
+                <p className="desktop:text-[15px] text-[14px] font-semibold uppercase tracking-wider text-neutral-text-muted mb-2">Sample Output</p>
                 <p className="desktop:text-[16px] text-[15px] text-neutral-text-primary whitespace-pre-line">{selectedTool.sample}</p>
               </div>
               <div className="space-y-2 desktop:text-[16px] text-[15px] text-neutral-text-secondary">
-                <p className="font-semibold text-neutral-text-primary">So funktioniert es:</p>
-                <p>Dieses Tool analysiert dein Gespräch und generiert {selectedTool.label.toLowerCase()} basierend auf dem Kontext und den besprochenen Inhalten.</p>
+                <p className="font-semibold text-neutral-text-primary">How it works:</p>
+                <p>This tool analyzes your conversation and generates {selectedTool.label.toLowerCase()} based on the context and discussed content.</p>
               </div>
             </div>
           </div>
@@ -196,14 +197,14 @@ export function AIGCSidebar({ messages, isConnected, className }: AIGCSidebarPro
               onClick={() => setSelectedTool(null)}
               className="w-full rounded-lg bg-white border-[3px] border-neutral-accent-primary py-3 desktop:text-[18px] text-[17px] font-semibold text-neutral-accent-primary hover:bg-neutral-accent-primary hover:text-white transition-colors"
             >
-              {selectedTool.label} generieren
+              Generate {selectedTool.label}
             </button>
           </div>
         </div>
       ) : (
         <div className="flex h-full flex-col">
           <div className="border-b border-neutral-accent-primary px-6 py-4 bg-white">
-            <p className="desktop:text-[15px] text-[14px] font-semibold uppercase tracking-wider text-neutral-text-muted">Inhaltstyp wählen</p>
+            <p className="desktop:text-[15px] text-[14px] font-semibold uppercase tracking-wider text-neutral-text-muted">Select Content Type</p>
           </div>
           <ScrollArea className="flex-1 overflow-y-auto px-4 bg-neutral-off-white">
             <div className="space-y-2 py-4">

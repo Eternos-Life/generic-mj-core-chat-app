@@ -193,6 +193,8 @@ const ChatInterface = () => {
     console.log("🔍 DEBUG:", content);
   };
 
+  // NOTE: Avatar component - uses avatar_headshot.png
+  // CUSTOMIZE: Replace alt text with your persona details
   const CoachAvatar = () => (
     <div className="w-24 h-24 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden border-[3px] border-neutral-accent-primary">
       <img
@@ -293,7 +295,7 @@ const ChatInterface = () => {
   };
 
   // CUSTOMIZE: Replace with your persona's introduction message
-  // This message is shown when the conversation starts
+  // NOTE: This message is shown when the conversation starts
   const INTRODUCTION_MESSAGE = "Hello! I'm {{AVATAR_NAME}}, {{AVATAR_TITLE}} and {{ROLE_DESCRIPTION}}. I'm here to help you with {{EXPERTISE_AREA_DESCRIPTION}}.";
 
   // CUSTOMIZE: Replace with domain-specific example questions
@@ -301,7 +303,7 @@ const ChatInterface = () => {
 
 - "What are the key topics in {{DOMAIN}}?"
 
-- "How can {{EXPERTISE_AREA}} help solve {{CHALLENGE}}?"
+- "How can {{EXPERTISE_AREA}} help with {{CHALLENGE}}?"
 
 - "What are the best practices for {{TOPIC}}?"
 
@@ -1039,7 +1041,7 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
                     size="default"
                     className="rounded-full border-[3px] border-neutral-accent-primary bg-white px-8 text-neutral-accent-primary hover:bg-neutral-accent-primary hover:text-white transition-all desktop:text-[18px] text-lg font-semibold"
                   >
-                    Trennen
+                    Disconnect
                   </Button>
                 ) : (
                   <Button
@@ -1047,7 +1049,7 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
                     disabled={isConnecting}
                     className="rounded-full border-[3px] border-neutral-accent-primary bg-neutral-accent-primary px-8 text-white hover:bg-neutral-accent-hover hover:border-neutral-accent-hover shadow-wine-md transition-all desktop:text-[18px] text-lg font-semibold"
                   >
-                    {isConnecting ? "Verbinden…" : "Verbinden"}
+                    {isConnecting ? "Connecting…" : "Connect"}
                   </Button>
                 )}
               </div>
@@ -1078,7 +1080,7 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                       </svg>
                     </div>
-                    {/* CUSTOMIZE: Replace "AVATAR_NAME" and welcome text with your persona */}
+                    {/* CUSTOMIZE: Replace "AVATAR_NAME" with your persona's name */}
                     <h3 className="desktop:text-[22px] text-xl font-semibold text-neutral-text-primary mb-3">Welcome to AVATAR_NAME</h3>
                     <p className="desktop:text-[17px] text-base text-neutral-text-secondary max-w-md mb-6">Click the "Connect" button to start your conversation with AVATAR_TITLE.</p>
                   </div>
@@ -1172,14 +1174,14 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
             </div>
           ) : (
             <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center bg-neutral-off-white">
-              <p className="text-sm font-semibold text-neutral-text-primary">K.I.-Studio</p>
+              <p className="text-sm font-semibold text-neutral-text-primary">AI Studio</p>
               <Button
                 variant="outline"
                 className="gap-2 border-[3px] border-neutral-accent-primary bg-white text-neutral-accent-primary hover:bg-neutral-accent-primary hover:text-white"
                 onClick={() => setSidebarOpen(true)}
               >
                 <PanelRightOpen className="h-4 w-4" />
-                Sidebar öffnen
+                Open Sidebar
               </Button>
             </div>
           )}
@@ -1203,7 +1205,7 @@ Remember: You are providing professional futurist guidance. Be informed, data-dr
             onClick={() => setSidebarOpen(true)}
           >
             <PanelRightOpen className="h-5 w-5" />
-            <span className="font-medium text-[16px]">K.I.-Studio öffnen</span>
+            <span className="font-medium text-[16px]">Open AI Studio</span>
           </Button>
         )}
       </div>
