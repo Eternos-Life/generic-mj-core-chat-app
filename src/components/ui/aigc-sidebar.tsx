@@ -1,5 +1,12 @@
 "use client";
 
+/*
+ * CUSTOMIZE: Update CONTENT_TOOLS array below for each persona's domain
+ * - label: Tool name displayed to user
+ * - description: Short description of what the tool does
+ * - sample: Example output shown in tool detail view
+ */
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -31,7 +38,6 @@ type GeneratorConfig = {
   sample: string;
 };
 
-// CUSTOMIZE: Update these tools with your domain-specific content generation options
 const CONTENT_TOOLS: GeneratorConfig[] = [
   {
     id: "summary",

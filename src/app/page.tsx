@@ -1,6 +1,10 @@
 import ChatInterface from "./chat-interface";
 
-// CUSTOMIZE: Replace with your persona's name and title
+/*
+ * CUSTOMIZE: Update metadata for each persona
+ * - title: "PersonaName - UARE.AI"
+ * - description: "Title | Digital Twin Demo"
+ */
 export const metadata = {
   title: "{{AVATAR_NAME}} - UARE.AI",
   description: "{{AVATAR_TITLE}} | Digital Twin Demo",

@@ -8,7 +8,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-// CUSTOMIZE: Replace with your persona's name and description
+/*
+ * CUSTOMIZE: Update metadata for each persona
+ * - title: "PersonaName - Title - UARE.AI"
+ * - description: "Tagline | Digital Twin Demo"
+ */
 export const metadata: Metadata = {
   title: "{{AVATAR_NAME}} - {{AVATAR_TITLE}} - UARE.AI",
   description: "{{AVATAR_SUBTITLE}} | Digital Twin Demo",
