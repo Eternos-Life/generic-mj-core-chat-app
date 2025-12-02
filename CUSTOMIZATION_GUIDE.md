@@ -18,39 +18,29 @@
 
 ---
 
-## 🎯 Overview - What Was Done
-
-### Original State
-- **Persona**: Sven Janszky (German Futurist & Trend Researcher)
-- **Organization**: 2b AHEAD ThinkTank
-- **Domain**: Future trends, megatrends, strategic foresight
-- **Language**: German
-- **Image**: sven_headshot.png
+## 🎯 Overview
 
 ### Current State (Generic Template)
 - **Persona**: Placeholder variables (`AVATAR_NAME`, `{{AVATAR_NAME}}`)
 - **Organization**: Placeholder (`{{ORG_NAME}}`)
 - **Domain**: Configurable via placeholders
-- **Language**: Multilingual support maintained
-- **Image**: avatar_headshot.png (generic name)
+- **Language**: English (default)
+- **Image**: avatar_headshot.png
 
-### Changes Made (Summary)
+### Key Files
 
-**Files Created** (6):
-1. `src/prompts/generic-persona-instructions.ts` - Persona template with full documentation
-2. `config.example.json` - Central configuration for all customizable values
-3. `.env.example` - Environment variables with detailed setup guide
-4. `CHANGELOG.md` - Complete change history
-5. `PATCH_SUMMARY.md` - File-by-file breakdown
-6. `QUICK_START.md` - 5-minute setup guide
+**Prompt Configuration**:
+- `src/prompts/generic-persona-instructions.ts` - Persona template with full documentation
+- `src/prompts/index.ts` - Export manager
 
-**Files Modified** (6):
-1. `src/app/chat-interface.tsx` - UI text converted to placeholders (~25 locations)
-2. `src/app/page.tsx` - Page metadata genericized
-3. `src/app/layout.tsx` - Site metadata genericized
-4. `README.md` - Comprehensive developer documentation
-5. `USER_GUIDE.md` - Generic end-user guide
-6. `public/sven_headshot.png` → `public/avatar_headshot.png` (renamed)
+**UI Configuration**:
+- `src/app/chat-interface.tsx` - Main UI with placeholder text (~25 locations)
+- `src/app/page.tsx` - Page metadata
+- `src/app/layout.tsx` - Site metadata
+- `src/components/ui/aigc-sidebar.tsx` - AI Studio sidebar tools
+
+**Assets**:
+- `public/avatar_headshot.png` - Avatar image (replace with your persona's headshot)
 
 **Functionality Preserved**:
 - ✅ Real-time voice conversations (Azure OpenAI Realtime API)
@@ -59,7 +49,6 @@
 - ✅ GDPR compliance features
 - ✅ AI Studio with content generation tools
 - ✅ Responsive design (Desktop/Tablet/Mobile)
-- ✅ German acronym pronunciation rules (adaptable)
 - ✅ Custom voice support
 
 ---
@@ -233,7 +222,7 @@ alt="Dr. Jane Smith - AI Ethics Researcher"
 #### B. Introduction Message (Line 297)
 ```tsx
 // Before:
-const INTRODUCTION_MESSAGE = "Hallo! Ich bin {{AVATAR_NAME}}, {{AVATAR_TITLE}} und {{ROLE_DESCRIPTION}}. Ich helfe Ihnen gerne mit {{EXPERTISE_AREA_DESCRIPTION}}.";
+const INTRODUCTION_MESSAGE = "Hello! I'm {{AVATAR_NAME}}, {{AVATAR_TITLE}} and {{ROLE_DESCRIPTION}}. I'm here to help you with {{EXPERTISE_AREA_DESCRIPTION}}.";
 
 // After:
 const INTRODUCTION_MESSAGE = "Hello! I'm Dr. Jane Smith, an AI Ethics Researcher and leading expert in responsible AI development. I help organizations navigate ethical challenges in AI systems.";
@@ -281,8 +270,8 @@ Replace all persona references in system prompts:
 #### G. Welcome Text (Lines 1081-1082)
 ```tsx
 // Before:
-<h3>Willkommen bei AVATAR_NAME</h3>
-<p>Klicken Sie auf die Schaltfläche „Verbinden", um Ihr Gespräch mit AVATAR_TITLE zu beginnen.</p>
+<h3>Welcome to AVATAR_NAME</h3>
+<p>Click the "Connect" button to start your conversation with AVATAR_TITLE.</p>
 
 // After:
 <h3>Welcome to Dr. Jane Smith</h3>
@@ -486,7 +475,7 @@ grep "{{.*}}" src/prompts/generic-persona-instructions.ts
 |---------|------|--------------|
 | 70-79 | `{{CATEGORY_1}}` through `{{CATEGORY_8}}` | Your 8 search categories |
 | 200 | `AVATAR_NAME - AVATAR_TITLE` | "Dr. Jane Smith - AI Ethics Researcher" |
-| 297 | `{{AVATAR_NAME}}`, `{{AVATAR_TITLE}}`, etc. | Your persona details (in German or English) |
+| 297 | `{{AVATAR_NAME}}`, `{{AVATAR_TITLE}}`, etc. | Your persona details |
 | 477 | `{{AVATAR_NAME}}` | "Dr. Jane Smith" |
 | 681 | `{{AVATAR_NAME}} {{AVATAR_TITLE}} {{ORG_NAME}}` | "Dr. Jane Smith AI Ethics Researcher Future Tech Institute" |
 | 707-711 | `{{AVATAR_NAME}}`, `{{EXPERTISE_AREAS}}` | Your persona name and expertise |
@@ -815,17 +804,17 @@ grep -r "AVATAR_NAME\|{{AVATAR" src/app/
 
 ---
 
-### Issue 7: German Acronyms Mispronounced
+### Issue 7: Acronyms Mispronounced
 
-**Symptom**: Voice says "kee" instead of "K-I" for "KI"
+**Symptom**: Voice mispronounces acronyms (e.g., "AI" as one syllable)
 
 **Cause**: Missing periods in acronyms
 
-**Solution**: Ensure periods between letters in German responses:
-- ✅ "K.I." (pronounced "Kay-Ee")
-- ❌ "KI" (pronounced "kee")
+**Solution**: For proper pronunciation, use periods between letters:
+- ✅ "A.I." (pronounced "Ay-Eye")
+- ❌ "AI" (may be mispronounced)
 
-This is in the prompt instructions - make sure your persona maintains this rule if using German.
+This helps the text-to-speech system pronounce acronyms letter-by-letter.
 
 ---
 
@@ -940,7 +929,7 @@ When helping users customize this template:
 4. **Test frequently**: Run `pnpm run build` after major changes
 5. **Knowledge base first**: Ensure search is working before fine-tuning prompts
 6. **Voice is optional**: The app works without custom voice
-7. **Preserve functionality**: Don't modify technical constraints (German acronyms, SSML rules) unless requested
+7. **Preserve functionality**: Don't modify technical constraints (SSML rules, voice settings) unless requested
 
 ---
 

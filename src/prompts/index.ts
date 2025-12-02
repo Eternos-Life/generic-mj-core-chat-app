@@ -1,28 +1,20 @@
 // src/prompts/index.ts
-// Simplified exports for Sven Janszky Futurist Digital Twin
+// Exports for Generic AI Digital Twin
 
 // Export the main instructions (this is what chat-interface.tsx imports)
 export {
   DEFAULT_INSTRUCTIONS,
-  SVEN_JANSZKY_IDENTITY,
-  SVEN_JANSZKY_SEARCH_RULES,
-  SVEN_JANSZKY_CONVERSATION_STYLE,
-  SVEN_JANSZKY_CONTEXT_INFO
-} from './sven-janszky-instructions';
-
-// Legacy exports for backward compatibility
-export {
-  SVEN_JANSZKY_IDENTITY as TIM_WOLFF_IDENTITY,
-  SVEN_JANSZKY_SEARCH_RULES as TIM_WOLFF_SEARCH_RULES,
-  SVEN_JANSZKY_CONVERSATION_STYLE as TIM_WOLFF_CONVERSATION_STYLE,
-  SVEN_JANSZKY_CONTEXT_INFO as TIM_WOLFF_CONTEXT_INFO
-} from './sven-janszky-instructions';
+  AVATAR_IDENTITY,
+  AVATAR_SEARCH_RULES,
+  AVATAR_CONVERSATION_STYLE,
+  AVATAR_CONTEXT_INFO
+} from './generic-persona-instructions';
 
 // Type definitions for advanced usage (if needed later)
 export interface PromptConfig {
   includeSearchRules?: boolean;
   includeStyleGuidelines?: boolean;
-  scenario?: 'default' | 'megatrends' | 'business-futures' | 'tech-disruption';
+  scenario?: 'default' | 'custom';
   customInstructions?: string;
 }
 
@@ -40,7 +32,7 @@ export class PromptBuilder {
   }
 
   build(): string {
-    const { DEFAULT_INSTRUCTIONS } = require('./sven-janszky-instructions');
+    const { DEFAULT_INSTRUCTIONS } = require('./generic-persona-instructions');
     return DEFAULT_INSTRUCTIONS;
   }
 
