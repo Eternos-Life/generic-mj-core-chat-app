@@ -566,9 +566,80 @@ cp .env.example .env
 
 ---
 
+#### 7. `src/components/ui/aigc-sidebar.tsx`
+**Priority**: ⚠️ CRITICAL
+**Task**: Customize AI Studio sidebar tools for your persona's domain
+
+The sidebar contains 5 content generation tools. Update each tool's label, description, and sample output to match your persona's expertise.
+
+**Location**: `CONTENT_TOOLS` array (lines 34-80)
+
+**Current Tools** (generic defaults):
+| Tool | Label | Description |
+|------|-------|-------------|
+| 1 | Summary | Create a concise summary |
+| 2 | Key Insights | Extract the most important insights |
+| 3 | Strategic Recommendations | Develop strategic action recommendations |
+| 4 | Frameworks | Access strategic frameworks |
+| 5 | Scenario Planning | Develop future scenarios |
+
+**Example Customization** (for a Marketing Expert):
+```typescript
+const CONTENT_TOOLS: GeneratorConfig[] = [
+  {
+    id: "summary",
+    label: "Campaign Summary",
+    description: "Summarize marketing campaign insights",
+    icon: FileText,
+    accent: "#2563EB",
+    sample: "📄 Campaign Summary\nKey metrics, audience insights, and performance highlights from our discussion.",
+  },
+  {
+    id: "key-insights",
+    label: "Market Insights",
+    description: "Extract key market and audience insights",
+    icon: Lightbulb,
+    accent: "#F59E0B",
+    sample: "💡 Market Insights\nIdentified trends, audience behaviors, and competitive observations.",
+  },
+  {
+    id: "strategic-recommendations",
+    label: "Marketing Recommendations",
+    description: "Actionable marketing strategy recommendations",
+    icon: ShieldCheck,
+    accent: "#10B981",
+    sample: "🎯 Marketing Recommendations\nChannel strategies, messaging approaches, and tactical next steps.",
+  },
+  {
+    id: "frameworks",
+    label: "Marketing Frameworks",
+    description: "Access proven marketing frameworks",
+    icon: FileText,
+    accent: "#8B5CF6",
+    sample: "📋 Marketing Frameworks\nStrategic frameworks like AIDA, customer journey mapping, and positioning models.",
+  },
+  {
+    id: "content-calendar",
+    label: "Content Calendar",
+    description: "Generate content calendar suggestions",
+    icon: CheckCircle2,
+    accent: "#3B82F6",
+    sample: "🔮 Content Calendar\nSuggested content themes, posting schedule, and campaign timeline.",
+  },
+];
+```
+
+**Fields to Update for Each Tool**:
+- `id`: Unique identifier (used internally)
+- `label`: Display name shown in UI
+- `description`: Short description below the label
+- `sample`: Example output shown when tool is selected
+
+---
+
 ### Optional Files (Recommended)
 
-#### 7. `tailwind.config.ts`
+#### 9. `tailwind.config.ts`
 **Priority**: Optional
 **Task**: Customize theme colors
 
@@ -591,7 +662,7 @@ theme: {
 
 ---
 
-#### 8. `src/app/globals.css`
+#### 10. `src/app/globals.css`
 **Priority**: Optional
 **Task**: Update CSS color variables
 
@@ -606,7 +677,7 @@ theme: {
 
 ---
 
-#### 9. `README.md` & `USER_GUIDE.md`
+#### 11. `README.md` & `USER_GUIDE.md`
 **Priority**: Optional
 **Task**: Already generic, but you can add org-specific details
 
@@ -898,8 +969,9 @@ Before considering the customization complete:
 
 ### Must Have
 - [ ] All placeholders replaced (0 remaining)
-- [ ] Avatar image replaced
+- [ ] Avatar image replaced (`public/avatar_headshot.png`)
 - [ ] `.env` configured with valid credentials
+- [ ] AI Studio sidebar tools customized (`aigc-sidebar.tsx` - CONTENT_TOOLS array)
 - [ ] Production build succeeds: `pnpm run build` ✓
 - [ ] Voice functionality works
 - [ ] Knowledge base search works
@@ -913,7 +985,6 @@ Before considering the customization complete:
 
 ### Nice to Have
 - [ ] Custom voice trained and configured
-- [ ] Additional AI Studio tools configured
 - [ ] Analytics/telemetry added
 - [ ] Custom domain configured
 

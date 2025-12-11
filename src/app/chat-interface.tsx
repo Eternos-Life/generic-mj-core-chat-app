@@ -5,38 +5,36 @@
  * CUSTOMIZATION GUIDE - Fields to update for each new persona/demo
  * ============================================================================
  *
- * UI TEXT (in this file - chat-interface.tsx):
- * ---------------------------------------------
- * 1. AVATAR_NAME - The persona's display name (header, welcome screen, alt text)
- * 2. AVATAR_SUBTITLE - Short tagline shown under the name
- * 3. AVATAR_TITLE - Professional title (used in welcome message)
- * 4. INTRODUCTION_MESSAGE - First message shown when connecting (~line 299)
- *    - {{AVATAR_NAME}}, {{AVATAR_TITLE}}, {{ROLE_DESCRIPTION}}, {{EXPERTISE_AREA_DESCRIPTION}}
- * 5. SUGGESTED_QUESTIONS - 3 example questions (~line 302)
- *    - {{DOMAIN}}, {{EXPERTISE_AREA}}, {{CHALLENGE}}, {{CONCEPT}}
+ * FILES TO CUSTOMIZE (in order):
+ * ------------------------------
+ * 1. This file (chat-interface.tsx) - UI text, messages, placeholders
+ * 2. src/components/ui/aigc-sidebar.tsx - AI Studio sidebar tools
+ * 3. src/app/layout.tsx - Page metadata (title, description)
+ * 4. src/app/page.tsx - Page metadata
+ * 5. public/avatar_headshot.png - Replace with persona's headshot image
  *
- * AVATAR IMAGE:
- * -------------
- * - Replace /public/avatar_headshot.png with the new persona's headshot
- * - Image should be square, minimum 200x200px recommended
+ * UI TEXT (in this file):
+ * -----------------------
+ * - AVATAR_NAME - Display name (header, welcome screen, alt text)
+ * - AVATAR_SUBTITLE - Tagline shown under the name
+ * - AVATAR_TITLE - Professional title (welcome message)
+ * - INTRODUCTION_MESSAGE (~line 299) - First message when connecting
+ * - SUGGESTED_QUESTIONS (~line 302) - 3 example questions
  *
- * METADATA (in layout.tsx and page.tsx):
- * --------------------------------------
- * - {{AVATAR_NAME}} - Page title
- * - {{AVATAR_TITLE}} - Meta description
- * - {{AVATAR_SUBTITLE}} - Meta description
- *
- * SIDEBAR TOOLS (in aigc-sidebar.tsx):
- * ------------------------------------
- * - CONTENT_TOOLS array - Update labels, descriptions, and sample outputs
- *   to match your persona's domain expertise
+ * AI STUDIO SIDEBAR (aigc-sidebar.tsx - CRITICAL!):
+ * -------------------------------------------------
+ * - CONTENT_TOOLS array (lines 34-80) - Update ALL 5 tools:
+ *   - label: Tool name shown to user
+ *   - description: What the tool does
+ *   - sample: Example output preview
  *
  * SEARCH & PROMPTS (in this file):
  * --------------------------------
- * - predefinedTools[0].tool.description - Search tool categories (~line 68-79)
+ * - predefinedTools[0].tool.description (~line 68-79) - Search categories
  * - futuristContext (~line 704) - Knowledge base instructions
  * - systemConstraint (~line 749) - Response format instructions
  *
+ * See CUSTOMIZATION_GUIDE.md for complete instructions.
  * ============================================================================
  */
 
